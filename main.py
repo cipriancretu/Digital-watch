@@ -1,3 +1,7 @@
+
+"""
+Import modules
+"""
 from tkinter import *
 from tkinter.ttk import *
 import datetime
@@ -6,7 +10,7 @@ try:
         import winsound #windows
 except:
         import os #other
-
+""""Set up the UI using Tkinter"""
 window = Tk()
 window.title("Clock")
 window.geometry('500x250')
@@ -24,7 +28,7 @@ time_label.pack(anchor='center')
 date_label = Label(clock_tab, font = 'calibri 40 bold', foreground = 'black')
 date_label.pack(anchor='s')
 
-
+"""This function make the clock to work and show the date"""
 def clock():
         date_time = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S/%p")
         date,time1 = date_time.split()
@@ -38,7 +42,8 @@ def clock():
         date_label.config(text= date)
         time_label.after(1000, clock)
 
-
+"""In this function make the alarm to work, set up the clock format for 
+alarm and the beep for more system of operation"""
 def alarm():
         main_time = datetime.datetime.now().strftime("%H:%M %p")
         alarm_time = get_alarm_time_entry.get()
